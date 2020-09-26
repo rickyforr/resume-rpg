@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { handleMovement } from "./player-movement";
 import Player from "./player.component";
 
 const mapStateToProps = (state) => {
@@ -7,4 +8,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export const PlayerContainer = connect(mapStateToProps)(Player);
+export const PlayerContainer = connect(mapStateToProps)(handleMovement(Player));

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { handleMovement } from "./player-movement";
+import { handleMovement } from "./player.actions";
 import Player from "./player.component";
 
 const mapStateToProps = (state) => {

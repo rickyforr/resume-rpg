@@ -23,8 +23,8 @@ export const handleMovement = (player) => {
   /**
    * Returns the offset in px for the sprite image in order to simulate player animation.
    *
-   * @param direction
-   * @param walkIndex
+   * @param direction    The direction of the move (EAST, WEST, NORTH, SOUTH).
+   * @param walkIndex    The index used to set the player sprite image.
    */
   const getSpriteLocation = (direction, walkIndex) => {
     switch (direction) {
@@ -39,17 +39,21 @@ export const handleMovement = (player) => {
     }
   };
 
+  /**
+   * Returns the walk index as the player moves.
+   * There are 4 different sprite images for each direction so index must be reset to 0 after it reaches 3.
+   */
   const getWalkIndex = () => {
     const walkIndex = store.getState().player.walkIndex;
-    return walkIndex >= 2 ? 0 : walkIndex + 1;
+    return walkIndex >= 3 ? 0 : walkIndex + 1;
   };
 
   /**
    * Checks to see if the new position is within the bounds of the map.
    * Returns new position if within bounds and old position if move would be out of bounds.
    *
-   * @param prevPos    The previous position.
-   * @param newPos     The new position.
+   * @param prevPos    The player's previous position.
+   * @param newPos     The player's new position.
    */
   const observeBoundary = (newPos) => {
     return newPos[0] >= 0 && newPos[0] <= MAP_WIDTH - SPRITE_WIDTH && newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_HEIGHT * 2;
@@ -75,7 +79,7 @@ export const handleMovement = (player) => {
    * Dispatches an action to move the player.
    *
    * @param newPos      The player's new position.
-   * @param direction   The player's new position.
+   * @param direction    The direction of the move (EAST, WEST, NORTH, SOUTH).
    */
   const dispatchMove = (direction, newPos) => {
     store.dispatch({

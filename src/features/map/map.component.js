@@ -1,5 +1,6 @@
 import React from "react";
 import MapRow from "./map-row.component";
+import MapTile from "./map-tile.component";
 
 /**
  * Renders the game map background and objects.
@@ -17,7 +18,14 @@ const Map = (props) => {
         border: "solid 2px white",
       }}
     >
-      {props.tiles && props.tiles.map((row, i) => <MapRow key={i} tiles={row} />)}
+      {props.tiles &&
+        props.tiles.map((row, i) => (
+          <div key={i} className="row">
+            {row.map((tile, i) => (
+              <MapTile key={i} value={tile} />
+            ))}
+          </div>
+        ))}
     </div>
   );
 };

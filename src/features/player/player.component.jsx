@@ -1,5 +1,5 @@
 import React from "react";
-import walkSprite from "./walkSprite.png";
+import walkSprite from "./walkSprite2.png";
 
 /**
  * Renders the game sprite (player).

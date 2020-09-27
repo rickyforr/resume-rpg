@@ -1,6 +1,11 @@
 import React from "react";
 import walkSprite from "./walkSprite.png";
 
+/**
+ * Renders the game sprite (player).
+ *
+ * @param props    The props to be used by the component.
+ */
 const Player = (props) => {
   return (
     <div
@@ -9,7 +14,7 @@ const Player = (props) => {
         top: props.position[1],
         left: props.position[0],
         backgroundImage: `url(${walkSprite})`,
-        backgroundPosition: "0 0",
+        backgroundPosition: props.spriteLocation,
         width: "30px",
         height: "60px",
       }}

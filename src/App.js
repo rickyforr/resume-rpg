@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import World from "./features/world/world.component";
+import { WorldContainer } from "./features/world/world.container";
 
 function App() {
   return (
     <div className="App">
-      <World />
+      <WorldContainer />
     </div>
   );
 }

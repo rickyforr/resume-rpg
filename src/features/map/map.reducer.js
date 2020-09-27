@@ -1,12 +1,10 @@
 const initialState = {
   position: [0, 0],
-  spriteLocation: "0px 0px",
-  walkIndex: 0,
 };
 
-const playerReducer = (state = initialState, action) => {
+const mapReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "MOVE_PLAYER":
+    case "ADD_TILE":
       return {
         ...action.payload,
       };
@@ -15,4 +13,4 @@ const playerReducer = (state = initialState, action) => {
   }
 };
 
-export default playerReducer;
+export default mapReducer;

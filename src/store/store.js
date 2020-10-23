@@ -1,9 +1,11 @@
 import { combineReducers, createStore } from "redux";
 import playerReducer from "../features/player/player.reducer";
 import mapReducer from "../features/map/map.reducer";
+import goblinReducer from "../features/goblin/goblin.reducer";
 
 const rootReducer = combineReducers({
   player: playerReducer,
+  goblin: goblinReducer,
   map: mapReducer,
 });
 

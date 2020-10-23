@@ -1,5 +1,4 @@
 import React from "react";
-import MapRow from "./map-row.component";
 import MapTile from "./map-tile.component";
 
 /**

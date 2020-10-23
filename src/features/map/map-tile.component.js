@@ -11,10 +11,18 @@ const getTileSprite = (type) => {
   switch (type) {
     case 0:
       return "grass";
+    case 1:
+      return "trumpet";
+    case 2:
+      return "diploma";
     case 5:
       return "rock";
     case 6:
       return "tree";
+    case 7:
+      return "chest";
+    case 8:
+      return "goblin";
     default:
       return "grass";
   }

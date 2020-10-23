@@ -13,3 +13,23 @@
 .tree {
   background-image: url("tree.png");
 }
+
+.chest {
+  background-image: url("chest.png");
+  background-repeat: no-repeat;
+}
+
+.trumpet {
+  background-image: url("trumpet.png");
+  background-repeat: no-repeat;
+}
+
+.diploma {
+  background-image: url("diploma.png");
+  background-repeat: no-repeat;
+}
+
+.goblin {
+  background-image: url("goblin.png");
+  background-repeat: no-repeat;
+}

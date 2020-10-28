@@ -15,6 +15,10 @@ const getTileSprite = (type) => {
       return "trumpet";
     case 2:
       return "diploma";
+    case 3:
+      return "pickaxe";
+    case 4:
+      return "lighthouse";
     case 5:
       return "rock";
     case 6:

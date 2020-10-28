@@ -6,9 +6,9 @@ const Modal = (props) => {
     <div id="myModal" className="modal">
       <div className="modal-content">
         <div>
-          <h3>Achievment Unlocked!</h3>
+          <h3>Achievement Unlocked!</h3>
           <h5>{props.title}</h5>
-          <p>{props.text}</p>
+          <p style={{margin: "10px"}}>{props.text}</p>
         </div>
         <img src={props.image} style={{ maxHeight: "400px", maxWidth: "200px" }}></img>
       </div>

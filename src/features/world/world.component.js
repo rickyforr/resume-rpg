@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../../components/modal/modal.component";
-import UniversityModal from "../../components/university-modal/university-modal.component";
 import { GoblinContainer } from "../goblin/goblin.container";
-import { MapContiner } from "../map/map.container";
+import { MapContainer } from "../map/map.container";
 import { PlayerContainer } from "../player/player.container";
-import trumpetImage from "./trumper_zebra.jpg";
+import trumpetImage from "./trumpet_zebra.png";
+import geologyImage from "./geology.jpg";
+import queensImage from "./queens.png";
+import lighthouseImage from "./lighthouse_diploma.jpg";
 
 /**
  * Renders the game world.
@@ -20,9 +22,6 @@ const World = (props) => {
 
   const onClose = () => {
     setShowModal(false);
-    setTimeout(() => {
-      setShowModal(true);
-    }, 5000);
   };
 
   return (
@@ -34,18 +33,21 @@ const World = (props) => {
         margin: "20px",
       }}
     >
-      <MapContiner />
+      <MapContainer />
       <GoblinContainer />
       <PlayerContainer />
       {props.player.position[1] === 240 && props.player.position[0] === 0 && showModal && (
-        <Modal
-          onClose={onClose}
-          image={trumpetImage}
-          text=" I began playing trumpet when I was 11 years old. I was hooked! Played a lot with school bands, the jazz band in university and had a short stint with a local band
-            called Freak Motif (check them out!). Here's me playing at the Motion Notion Festival in BC"
-        />
+        <Modal onClose={onClose} image={trumpetImage} title="Music" text={props.musicModalText} />
       )}
-      {props.player.position[1] === 240 && props.player.position[0] === 210 && showModal && <UniversityModal onClose={onClose} />}
+      {props.player.position[1] === 240 && props.player.position[0] === 210 && showModal && (
+        <Modal onClose={onClose} image={queensImage} title="Bsc(Honours) Earth Science" text={props.universityModalText} />
+      )}
+      {props.player.position[1] === 240 && props.player.position[0] === 540 && showModal && (
+        <Modal onClose={onClose} image={geologyImage} title="Geology" text={props.geologyModalText} />
+      )}
+      {props.player.position[1] === 180 && props.player.position[0] === 810 && showModal && (
+        <Modal onClose={onClose} image={lighthouseImage} title="Web Developer" text={props.lighthouseLabsModalText} />
+      )}
     </div>
   );
 };

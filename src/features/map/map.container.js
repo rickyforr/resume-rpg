@@ -5,4 +5,4 @@ const mapStateToProps = (state) => ({
   tiles: state.map.tiles,
 });
 
-export const MapContiner = connect(mapStateToProps)(Map);
+export const MapContainer = connect(mapStateToProps)(Map);

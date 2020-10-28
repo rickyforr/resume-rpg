@@ -33,3 +33,13 @@
   background-image: url("goblin.png");
   background-repeat: no-repeat;
 }
+
+.pickaxe {
+  background-image: url("pickaxe.png");
+  background-repeat: no-repeat;
+}
+
+.lighthouse {
+  background-image: url("lighthouse.png");
+  background-repeat: no-repeat;
+}

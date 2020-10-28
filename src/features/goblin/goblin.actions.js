@@ -107,24 +107,8 @@ export const handleMovement = (player) => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    switch (e.keyCode) {
-      case 37:
-        return attemptMove("WEST");
-      case 38:
-        return attemptMove("NORTH");
-      case 39:
-        return attemptMove("EAST");
-      case 40:
-        return attemptMove("SOUTH");
-      default:
-        console.log(e.keyCode);
-    }
-  };
-
   let i = 1;
   const repeatMove = () => {
-    // attemptMove(direction === "WEST" ? "EAST" : "WEST");
     setInterval(() => {
       switch (i++ % 2) {
         case 0:
@@ -137,7 +121,6 @@ export const handleMovement = (player) => {
           attemptMove("SOUTH");
           break;
       }
-      // attemptMove(direction === "WEST" ? "EAST" : "WEST");
     }, 1000);
   };
 

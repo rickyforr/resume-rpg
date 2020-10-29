@@ -4,9 +4,9 @@ import store from "../../store/store";
 /**
  * Controls goblin movement within the game.
  *
- * @param player    The player component.
+ * @param goblin    The goblin component.
  */
-export const handleMovement = (player) => {
+export const handleMovement = (goblin) => {
   const getNewPosition = (prevPos, direction) => {
     switch (direction) {
       case "WEST":
@@ -21,10 +21,10 @@ export const handleMovement = (player) => {
   };
 
   /**
-   * Returns the offset in px for the sprite image in order to simulate player animation.
+   * Returns the offset in px for the sprite image in order to simulate goblin animation.
    *
    * @param direction    The direction of the move (EAST, WEST, NORTH, SOUTH).
-   * @param walkIndex    The index used to set the player sprite image.
+   * @param walkIndex    The index used to set the goblin sprite image.
    */
   const getSpriteLocation = (direction, walkIndex) => {
     switch (direction) {
@@ -40,7 +40,7 @@ export const handleMovement = (player) => {
   };
 
   /**
-   * Returns the walk index as the player moves.
+   * Returns the walk index as the goblin moves.
    * There are 4 different sprite images for each direction so index must be reset to 0 after it reaches 3.
    */
   const getWalkIndex = () => {
@@ -52,8 +52,8 @@ export const handleMovement = (player) => {
    * Checks to see if the new position is within the bounds of the map.
    * Returns new position if within bounds and old position if move would be out of bounds.
    *
-   * @param prevPos    The player's previous position.
-   * @param newPos     The player's new position.
+   * @param prevPos    The goblin's previous position.
+   * @param newPos     The goblin's new position.
    */
   const observeBoundary = (newPos) => {
     return newPos[0] >= 0 && newPos[0] <= MAP_WIDTH - SPRITE_WIDTH && newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - SPRITE_HEIGHT * 2;
@@ -63,12 +63,11 @@ export const handleMovement = (player) => {
    * Checks to see if the new position is within the bounds of the map.
    * Returns new position if within bounds and old position if move would be out of bounds.
    *
-   * @param prevPos    The player's previous position.
-   * @param newPos     The player's new position.
+   * @param prevPos    The goblin's previous position.
+   * @param newPos     The goblin's new position.
    */
   const observeGameObjects = (newPos) => {
     const tiles = store.getState().map.tiles;
-    console.log(tiles);
     const y = newPos[1] / SPRITE_HEIGHT;
     const x = newPos[0] / SPRITE_WIDTH;
     const nextTile = tiles[y][x];
@@ -76,9 +75,9 @@ export const handleMovement = (player) => {
   };
 
   /**
-   * Dispatches an action to move the player.
+   * Dispatches an action to move the goblin.
    *
-   * @param newPos      The player's new position.
+   * @param newPos       The goblin's new position.
    * @param direction    The direction of the move (EAST, WEST, NORTH, SOUTH).
    */
   const dispatchMove = (direction, newPos) => {
@@ -94,7 +93,7 @@ export const handleMovement = (player) => {
   };
 
   /**
-   * Checks if the new position will observe boundaries and game objects and calls method to move the player.
+   * Checks if the new position will observe boundaries and game objects and calls method to move the goblin.
    *
    * @param direction    The direction of the move (EAST, WEST, NORTH, SOUTH).
    */
@@ -125,5 +124,5 @@ export const handleMovement = (player) => {
   };
 
   repeatMove();
-  return player;
+  return goblin;
 };

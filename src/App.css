@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.game_title {
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 400px;
+  background: #000000bd;
+  padding: 10px;
+}
+
+.game_instructions {
+  font-family: "Lato";
 }
